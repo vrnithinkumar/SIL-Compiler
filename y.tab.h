@@ -67,17 +67,19 @@
      MINUS = 285,
      MULTIPLY = 286,
      DIVIDE = 287,
-     MODE = 288,
-     LESSTHAN = 289,
-     LESSTHANEQ = 290,
-     NOT = 291,
-     GREATERTHAN = 292,
-     GREATERTHANEQ = 293,
-     EQUAL = 294,
-     NOTEQUAL = 295,
-     ID = 296,
-     Pointer_ID = 297,
-     Integer_Constant = 298
+     LESSTHAN = 288,
+     LESSTHANEQ = 289,
+     NOT = 290,
+     L_AND = 291,
+     L_OR = 292,
+     L_NOT = 293,
+     GREATERTHAN = 294,
+     GREATERTHANEQ = 295,
+     EQUAL = 296,
+     NOTEQUAL = 297,
+     ID = 298,
+     Pointer_ID = 299,
+     Integer_Constant = 300
    };
 #endif
 /* Tokens.  */
@@ -111,17 +113,19 @@
 #define MINUS 285
 #define MULTIPLY 286
 #define DIVIDE 287
-#define MODE 288
-#define LESSTHAN 289
-#define LESSTHANEQ 290
-#define NOT 291
-#define GREATERTHAN 292
-#define GREATERTHANEQ 293
-#define EQUAL 294
-#define NOTEQUAL 295
-#define ID 296
-#define Pointer_ID 297
-#define Integer_Constant 298
+#define LESSTHAN 288
+#define LESSTHANEQ 289
+#define NOT 290
+#define L_AND 291
+#define L_OR 292
+#define L_NOT 293
+#define GREATERTHAN 294
+#define GREATERTHANEQ 295
+#define EQUAL 296
+#define NOTEQUAL 297
+#define ID 298
+#define Pointer_ID 299
+#define Integer_Constant 300
 
 
 

@@ -33,6 +33,9 @@ newlines [\n][\n]*
 "integer"      {return INTEGER ;}
 "boolean"      {return BOOL ;}
 "main"         {return MAIN ;}
+"AND" 		   {return L_AND;}
+"OR"		   {return L_OR;}
+"NOT" 	       {return L_NOT;}
 
 "="					{return Assignment_OP;}        		
 ";"  				{return SemiColon ;}
@@ -48,8 +51,7 @@ newlines [\n][\n]*
 "+"					{return PLUS;}				
 "-"					{return MINUS;}				
 "*"					{return MULTIPLY;}				
-"/"					{return DIVIDE;}				
-"%"					{return MODE;}				
+"/"					{return DIVIDE;}								
 "<"					{return LESSTHAN;}				
 "<="				{return LESSTHANEQ;}					
 ">" 				{return GREATERTHAN;}

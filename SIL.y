@@ -11,9 +11,10 @@
  %token WRITE INTEGER BOOL MAIN Assignment_OP SemiColon
  %token Comma_Operator Right_Square_Bracket Left_Square_Bracket 
  %token Right_Curly_BRACKET Left_Curly_BRACKET Open_BRACKET Close_BRACKET PLUS
- %token MINUS MULTIPLY DIVIDE MODE LESSTHAN LESSTHANEQ NOT
+ %token MINUS MULTIPLY DIVIDE LESSTHAN LESSTHANEQ NOT L_AND L_OR L_NOT
  %token GREATERTHAN GREATERTHANEQ EQUAL NOTEQUAL ID Pointer_ID Integer_Constant
-
+%left PLUS MINUS
+%left MULTIPLY DIVIDE
 %%
 
 
@@ -98,32 +99,31 @@ Stmnt:  ID Assignment_OP Expressions SemiColon  {printf(" Assignment \n");}
 		| WRITE Open_BRACKET Expressions Close_BRACKET SemiColon
 		 ;
 
-Expressions: Expressions Ari_OP Expressions
-			| Expressions Log_OP Expressions
-			| Open_BRACKET Expressions Close_BRACKET {printf(" In bra \n");}
-			|Elements
+Expressions: AriExps
+			|Open_BRACKET Expressions Log_OP Expressions Close_BRACKET
+			|Open_BRACKET L_NOT Expressions Close_BRACKET
 			;
+AriExps: 
+		AriExps PLUS AriExps
+		|AriExps MINUS AriExps
+		|AriExps MULTIPLY AriExps
+		|AriExps DIVIDE AriExps
+		|Elements
+		;
 
 Array_Value: ID Right_Square_Bracket Elements Left_Square_Bracket ;
 
-Elements:  
-		 Integer_Constant
+Elements: 
+		 |Integer_Constant
 		 | ID
 		 | Array_Value
 		 | Function_In_Use
 		 ;
 
 Function_In_Use:
-				ID Open_BRACKET Expressions Close_BRACKET {printf("Function in use \n");}
+				ID Open_BRACKET AriExps Close_BRACKET {printf("Function in use \n");}
 				;		 
 
-Ari_OP: 
-		PLUS
-		|MINUS
-		|MULTIPLY {printf("Multiply \n");}
-		|DIVIDE
-		|MODE
-		;
 
 Log_OP:
 		LESSTHAN
@@ -132,6 +132,8 @@ Log_OP:
 		|GREATERTHANEQ
 		|EQUAL
 		|NOTEQUAL
+		|L_OR
+		|L_AND
 		;
 
 Main_Function: INTEGER MAIN Open_BRACKET Close_BRACKET Right_Curly_BRACKET Main_Body Left_Curly_BRACKET {printf("Main\n");}

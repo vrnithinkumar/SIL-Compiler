@@ -16,11 +16,11 @@ begin
 
 if (n==1) then
 
-rvalue = 1;
+rvalue =1;
 
 else
 
-rvalue = n * factorial (n-1);
+rvalue = +n * factorial (n-1);
 
 endif;
 
